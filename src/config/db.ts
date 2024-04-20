@@ -1,28 +1,10 @@
-// import { PrismaClient } from "@prisma/client";
-// import config from "./vars"
-// const prisma = new PrismaClient();
-
-// const db = async () => {
-//     await prisma.$connect()
-//     console.log(`Database connect successfully ${config.mongo}`)
-
-// }
-
-// db().catch((error) => {
-//     console.log(error)
-// }).finally(async () => {
-//     await prisma.$disconnect
-// })
-
-// export default db;
-
 import { PrismaClient } from "@prisma/client";
 import config from "./vars";
-import { Logger } from "tslog"; // Import the tslog logger
+import log from "../helper/logger.helper";
 
 const prisma = new PrismaClient();
-const log = new Logger();
 
+// connect to db
 const connectToDatabase = async (): Promise<void> => {
     try {
         await prisma.$connect();

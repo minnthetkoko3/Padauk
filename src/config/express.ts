@@ -1,0 +1,23 @@
+import express, { Express, Request, Response } from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import compression from "compression";
+import router from "../router/routes";
+
+const app = express()
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("server is running");
+    console.log("server is running")
+})
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.use(cors({credentials: true}))
+app.use(compression())
+app.use(bodyParser.json())
+
+app.use("./", router)
+
+export default app;

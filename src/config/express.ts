@@ -19,6 +19,7 @@ app.use(cors({credentials: true}))
 app.use(compression())
 app.use(bodyParser.json())
 
-app.use("/", router)
+// http:localhost:3000/api/v1
+app.use("/api/v1", router)
 
 export default app;

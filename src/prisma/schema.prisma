@@ -26,7 +26,7 @@ model User {
   password        String
   username        String
   name            String?
-  salt            String?
+  salt            String?   @map("authentication_salt")
   createdAt       DateTime @default(now())
   posts           Post[]
 }

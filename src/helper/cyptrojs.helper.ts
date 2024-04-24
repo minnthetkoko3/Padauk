@@ -1,4 +1,5 @@
 import { randomBytes, createHmac } from 'crypto';
+
 const SECRET = "PADAUK";
 
 // Function to generate a random string
@@ -7,7 +8,7 @@ export const generateRandomString = (): string => {
 };
 
 // Function to create an authentication hash
-export const createAuthenticationHash = (salt: string, password: string): string => {
+export const Authentication = (salt: string, password: string): string => {
   if (typeof SECRET === 'undefined') {
     throw new Error('SECRET is undefined');
   }
